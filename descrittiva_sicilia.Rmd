@@ -99,8 +99,9 @@ deceduti_oggi <- tail(diff(sicilia$deceduti), n=1)
 
 totale_casi  <- tail(sicilia$totale_casi, n=1)
 
-df <- data.frame(deceduti, deceduti_oggi)
+df <- data.frame(tamponi, nuovi_attualmente_positivi, totale_attualmente_positivi, isolamento_domiciliare, ricoverati_con_sintomi, terapia_intensiva )
 kable(df)
+
 ```
 
 Ad oggi sono stati effettuati `r tamponi` tamponi. Nell'ultimo giorno ne sono stati effettuati `r tamponi_oggi`.
