@@ -75,11 +75,16 @@ sicilia <- dati_it %>% filter(denominazione_regione=="Sicilia")
 
 nuovi_positivi <-  tail(sicilia$nuovi_attualmente_positivi, n=1)
 totali_positivi <- tail(sicilia$totale_attualmente_positivi, n=1)
+isolamento_domiciliare  <- tail(sicilia$isolamento_domiciliare, n=1)
+ricoverati_con_sintomi  <- tail(sicilia$ricoverati_con_sintomi, n=1)
+terapia_intensiva  <- tail(sicilia$terapia_intensiva, n=1)
+
+
 
 
 ```
 
-I nuovi casi (positivi al tampone... link alla who per definizione di caso) sono `r  nuovi_positivi`. I pazienti positivi al COVID-19 in Sicilia sono in tutto `r totali_positivi`.
+I nuovi casi (positivi al tampone... link alla who per definizione di caso) sono `r  nuovi_positivi`. I pazienti positivi al COVID-19 in Sicilia sono in tutto `r totali_positivi`. Le persone positive al coronavirus in isolamento domiciliare sono `r isolamento_domiciliare`.
 
 
 
