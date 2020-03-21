@@ -75,9 +75,15 @@ sicilia <- dati_it %>% filter(denominazione_regione=="Sicilia")
 
 nuovi_positivi <-  tail(sicilia$nuovi_attualmente_positivi, n=1)
 totali_positivi <- tail(sicilia$totale_attualmente_positivi, n=1)
+
 isolamento_domiciliare  <- tail(sicilia$isolamento_domiciliare, n=1)
+isolamento_domiciliare_oggi <- tail(diff(sicilia$isolamento_domiciliare), n=1)
+
 ricoverati_con_sintomi  <- tail(sicilia$ricoverati_con_sintomi, n=1)
+ricoverati_oggi <- tail(diff(sicilia$ricoverati), n=1)
+
 terapia_intensiva  <- tail(sicilia$terapia_intensiva, n=1)
+
 deceduti  <- tail(sicilia$deceduti, n=1)
 deceduti_oggi <- tail(diff(sicilia$deceduti), n=1)
 
@@ -85,7 +91,7 @@ deceduti_oggi <- tail(diff(sicilia$deceduti), n=1)
 
 ```
 
-I nuovi casi (positivi al tampone... link alla who per definizione di caso) sono `r  nuovi_positivi`. I pazienti positivi al COVID-19 in Sicilia sono in tutto `r totali_positivi`. Le persone positive al coronavirus in isolamento domiciliare sono `r isolamento_domiciliare`. I pazienti ricoverati con sintomi sono `r ricoverati_con_sintomi`. I pazienti ricoverati in terapia intensiva sono `r terapia_intensiva`. Oggi sono decedute `r deceduti_oggi`. Le persone decedute in totale sono `r deceduti`.
+I nuovi casi (positivi al tampone... link alla who per definizione di caso) sono `r  nuovi_positivi`. I pazienti positivi al COVID-19 in Sicilia sono in tutto `r totali_positivi`. Le persone positive al coronavirus in isolamento domiciliare sono `r isolamento_domiciliare`. Rispetto a ieri `r isolamento_domiciliare_oggi` persone in più sono in isolamento domiciliare. Oggi sono state ricoverate `r ricoverati_oggi` persone. I pazienti ricoverati con sintomi sono `r ricoverati_con_sintomi`. I pazienti ricoverati in terapia intensiva sono `r terapia_intensiva`. Nella giornata di oggi sono decedute `r deceduti_oggi` persone. Le persone decedute in totale sono `r deceduti`.
 
 
 
