@@ -69,7 +69,7 @@ sicilia <- dati_it %>% filter(denominazione_regione=="Sicilia")
 
 ```
 
-# Analisi descrittiva COVID-19 Sicilia
+# COVID-19 - La situazione in Sicilia
 
 ```{r}
 
