@@ -1,0 +1,79 @@
+---
+title: "Analisi descrittiva COVID-19: Sicilia"
+description: "analisi descrittiva."
+categories:
+  - R
+  - "COVID-19"
+  - "Sicilia"
+author:
+  - name: Primo Buscemi
+creative_commons: CC BY-SA
+date: "2020-03-15"
+base_url: https://timchurches.github.io/blog/
+twitter:
+  creator: "@timchurches"
+output:
+  distill::distill_article:
+    toc: true
+    toc_depth: 2
+    self_contained: false
+repository_url: https://github.com/timchurches/blog/tree/master/_posts/2020-02-18-analysing-covid-19-2019-ncov-outbreak-data-with-r-part-1
+---
+
+```{r setup, include=FALSE}
+version <- "1.8"
+version_date <- lubridate::ymd("2020-02-28")
+knitr::opts_chunk$set(echo = FALSE, cache=TRUE,
+                      tidy.opts=list(width.cutoff=60),
+                      tidy=TRUE)
+library(tidyverse)
+library(magrittr)
+library(lubridate)
+library(tibble)
+library(ggplot2)
+library(ggthemes)
+library(hrbrthemes)
+library(rvest)
+library(gt)
+library(deSolve)
+library(EpiEstim)
+library(incidence)
+library(distcrete)
+library(epitrix)
+library(projections)
+library(tidyr)
+library(naniar)
+library(purrr)
+library(lubridate)
+library(earlyR)
+library(projections)
+library(EpiEstim)
+
+
+```
+
+```{r}
+# carico i dati dal sito della protezione civile
+
+dati_it <- "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-regioni/dpc-covid19-ita-regioni.csv"
+
+dati_it <- read.csv(dati_it)
+
+```
+
+```{r}
+# ottengo i dati siciliani
+
+sicilia <- dati_it %>% filter(denominazione_regione=="Sicilia")
+
+
+```
+
+# Analisi descrittiva COVID-19 Sicilia
+
+```{r}
+
+```
+
+
+
