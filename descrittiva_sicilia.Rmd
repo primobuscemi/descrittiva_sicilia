@@ -74,10 +74,12 @@ sicilia <- dati_it %>% filter(denominazione_regione=="Sicilia")
 ```{r}
 
 nuovi_positivi <-  tail(sicilia$nuovi_attualmente_positivi, n=1)
+totali_positivi <- tail(sicilia$totale_attualmente_positivi, n=1)
+
 
 ```
 
-I nuovi casi (positivi al tampone... link alla who per definizione di caso) sono `r  sum(sicilia$nuovi_attualmente_positivi)`. 
+I nuovi casi (positivi al tampone... link alla who per definizione di caso) sono `r  nuovi_positivi`. I pazienti positivi al COVID-19 in Sicilia sono in tutto `r totali_positivi`.
 
 
 
