@@ -92,7 +92,7 @@ deceduti_oggi <- tail(diff(sicilia$deceduti), n=1)
 
 ```
 
-I nuovi casi (positivi al tampone... link alla who per definizione di caso) sono `r  nuovi_positivi`. I pazienti positivi al COVID-19 in Sicilia sono in tutto `r totali_positivi`. Le persone positive al coronavirus in isolamento domiciliare sono `r isolamento_domiciliare`. Rispetto a ieri `r isolamento_domiciliare_oggi` persone in più sono in isolamento domiciliare. I pazienti ricoverati con sintomi sono `r ricoverati_con_sintomi`. Oggi sono ricoverate `r ricoverati_oggi` persone in più rispetto a ieri. I pazienti ricoverati in terapia intensiva sono `r terapia_intensiva`, `r terapia_intensiva_oggi` rispetto a ieri. Nella giornata di oggi sono decedute `r deceduti_oggi` persone. Le persone decedute in totale sono `r deceduti`.
+I nuovi casi (positivi al tampone... link alla who per definizione di caso) sono `r  nuovi_positivi`. I pazienti positivi al COVID-19 in Sicilia sono in tutto `r totali_positivi`. Le persone positive al coronavirus in isolamento domiciliare sono `r isolamento_domiciliare`. Rispetto a ieri `r isolamento_domiciliare_oggi` persone in più sono in isolamento domiciliare. I pazienti ricoverati con sintomi sono `r ricoverati_con_sintomi`. Oggi sono ricoverate `r ricoverati_oggi` persone in più rispetto a ieri. I pazienti ricoverati in terapia intensiva sono `r terapia_intensiva`, `r terapia_intensiva_oggi` in più rispetto a ieri. Nella giornata di oggi sono decedute `r deceduti_oggi` persone. Le persone decedute in totale sono `r deceduti`.
 
 
 
