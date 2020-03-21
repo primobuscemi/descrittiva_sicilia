@@ -69,7 +69,7 @@ sicilia <- dati_it %>% filter(denominazione_regione=="Sicilia")
 
 ```
 
-# COVID-19 - La situazione in Sicilia
+# COVID-19 : La situazione in Sicilia
 
 ```{r}
 
@@ -99,8 +99,11 @@ deceduti_oggi <- tail(diff(sicilia$deceduti), n=1)
 
 totale_casi  <- tail(sicilia$totale_casi, n=1)
 
-df <- data.frame(tamponi, nuovi_attualmente_positivi, totale_attualmente_positivi, isolamento_domiciliare, ricoverati_con_sintomi, terapia_intensiva )
-kable(df)
+df1 <- data.frame(tamponi, nuovi_attualmente_positivi, totale_attualmente_positivi, isolamento_domiciliare, ricoverati_con_sintomi, terapia_intensiva )
+kable(df1)
+
+df2 <- data.frame(tamponi_oggi, isolamento_domiciliare_oggi, ricoverati_con_sintomi_oggi, terapia_intensiva_oggi )
+kable(df2)
 
 ```
 
