@@ -188,7 +188,7 @@ sicilia <- dati_it %>% filter(denominazione_regione=="Sicilia")
 
 ```
 
-# COVID-19 : La situazione in Sicilia
+# COVID-19 : La situazione in Sicilia - `r today()`
 
 ```{r}
 
@@ -221,7 +221,7 @@ totale_casi  <- tail(sicilia$totale_casi, n=1)
 df1 <- data.frame(tamponi, nuovi_attualmente_positivi, totale_attualmente_positivi, isolamento_domiciliare, ricoverati_con_sintomi, terapia_intensiva )
 kable(df1)
 
-df2 <- data.frame(tamponi_oggi, isolamento_domiciliare_oggi, ricoverati_con_sintomi_oggi, terapia_intensiva_oggi )
+df2 <- data.frame(tamponi_oggi,nuovi_attualmente_positivi_oggi, isolamento_domiciliare_oggi, ricoverati_con_sintomi_oggi, terapia_intensiva_oggi )
 kable(df2)
 
 ```
@@ -243,8 +243,8 @@ Nella giornata di oggi sono decedute `r deceduti_oggi` persone. Dall'inizio dell
 
 ```{r}
 library(lubridate)
-cumulativa <- cumsum(as.numeric(as.vector(sicilia$V12)))
-sic_date<- as.Date(sicilia$V1,format="%Y-%m-%d")
+cumulativa <- cumsum(as.numeric(as.vector(sicilia$nuovi_attualmente_positivi)))
+sic_date<- as.Date(sicilia$data,format="%Y-%m-%d")
 sicilia <- sicilia %>% mutate(cumulativa=cumulativa, date=sic_date)
 
 
