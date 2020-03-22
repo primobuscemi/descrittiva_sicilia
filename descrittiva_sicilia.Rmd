@@ -77,13 +77,35 @@ library(XMLRPC)
 library(RWordPress)
 library(knitr)
 
+#!/usr/bin/Rscript
+
+if (!('XMLRPC' %in% installed.packages())) devtools::install_github("duncantl/XMLRPC")
+if (!('RWordpress' %in% installed.packages())) devtools::install_github("duncantl/RWordPress")
+
+library(RWordPress, quietly = T, warn.conflicts = F)
+library(knitr, quietly = T, warn.conflicts = F)
+library(argparser, quietly = T, warn.conflicts = F)
+library(dplyr, quietly = T, warn.conflicts = F)
+
+# Parse script input arguments
+parser <- arg_parser("Inputs for wordpress script") %>% 
+    add_argument(help = "/home/primo/Scrivania/descrittiva_sicilia/pw.txt", arg = "/home/primo/Scrivania/descrittiva_sicilia/descrittiva_sicilia.Rmd") %>%
+    add_argument(help = "title of post", arg = "title")
+args <- parse_args(parser)
+
+
+
+cat <- c('general')
+# Post thumbnail
+opts_knit$set(upload.fun = function(file){library(RWordPress);uploadFile(file)$url;})
+
+
 pw <- readLines(file("/home/primo/Scrivania/descrittiva_sicilia/pw.txt"))
 options(WordpressLogin = c(filippobuscemi = pw),
         WordpressURL = "http://www.filippobuscemi.com")
 
 rmd_file <- args$file
 # Post thumbnail
-opts_knit$set(upload.fun = function(file){library(RWordPress);uploadFile(file)$url;})
 
 knit2wp("/home/primo/Scrivania/descrittiva_sicilia/descrittiva_sicilia.Rmd", 
         title = args$title,
