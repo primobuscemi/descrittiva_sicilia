@@ -227,14 +227,14 @@ plot(sicilia$deceduti)
 
 ```
 
-Ad oggi sono stati effettuati `r tamponi` tamponi. Nelle ultime 24 ore ne sono stati effettuati `r tamponi_oggi`.
+Ad oggi (`r today()`) sono stati effettuati `r tamponi` tamponi. Nelle ultime 24 ore ne sono stati effettuati `r tamponi_oggi`.
 I nuovi casi (positivi al tampone... link alla who per definizione di caso) sono `r  nuovi_attualmente_positivi`. Rispetto al bilancio della giornata di ieri, il numero delle persone risultate positive al tampone in un solo giorno è aumentato (`r nuovi_attualmente_positivi_oggi` persone in più).
 
-I pazienti positivi al COVID-19 in Sicilia oggi sono in totale `r totale_attualmente_positivi`. Le persone positive al coronavirus in isolamento domiciliare sono `r isolamento_domiciliare`. 
+I pazienti positivi al COVID-19 in Sicilia  sono in totale `r totale_attualmente_positivi`. Le persone positive al coronavirus in isolamento domiciliare sono `r isolamento_domiciliare`. Rispetto a ieri, sono `r isolamento_domiciliare_oggi` le persone in più in isolamento domiciliare.
 
-Rispetto a ieri, sono `r isolamento_domiciliare_oggi` le persone in più in isolamento domiciliare. Il totale dei pazienti ospedalizzati è `r totale_ospedalizzati`, rispetto alla giornata di ieri sono state ricoverate `r totale_ospedalizzati_oggi` in più. I pazienti ricoverati con sintomi sono `r ricoverati_con_sintomi`. Esclusa la terapia intensiva, i ricoveri ospedalieri sono `r ricoverati_con_sintomi_oggi` in più rispetto a ieri. I pazienti ricoverati in terapia intensiva sono `r terapia_intensiva`, `r terapia_intensiva_oggi` in più rispetto a ieri.
+Il totale dei pazienti ospedalizzati è `r totale_ospedalizzati`, rispetto alla giornata di ieri sono state ricoverate `r totale_ospedalizzati_oggi` in più. I pazienti ricoverati con sintomi sono `r ricoverati_con_sintomi`. Esclusa la terapia intensiva, i ricoveri ospedalieri sono `r ricoverati_con_sintomi_oggi` in più rispetto a ieri. I pazienti ricoverati in terapia intensiva sono `r terapia_intensiva`, `r terapia_intensiva_oggi` in più rispetto a ieri.
 
-Nella giornata di oggi sono decedute `r deceduti_oggi` persone. Dall'inizio dell'epidemia sono decedute `r deceduti` persone. Il totale dei casi registrati di COVID-19 è `r totale_casi`.
+Nella giornata di oggi sono decedute `r deceduti_oggi` persone. Dall'inizio dell'epidemia sono decedute `r deceduti` persone. Il totale dei casi registrati di COVID-19 dall'inizio dell'epidemia è `r totale_casi`.
 
 
 
