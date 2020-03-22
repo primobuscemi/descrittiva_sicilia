@@ -21,7 +21,6 @@ repository_url: https://github.com/timchurches/blog/tree/master/_posts/2020-02-1
 ---
 
 ```{r setup, include=FALSE}
-
 version <- "1.8"
 version_date <- lubridate::ymd("2020-02-28")
 knitr::opts_chunk$set(echo = FALSE, cache=TRUE,
@@ -73,41 +72,78 @@ library(earlyR)
 library(projections)
 library(EpiEstim)
 
-library(XMLRPC)
+
+## Set the working directory to the file you are going to publish
+ 
+setwd("/home/primo/Scrivania/descrittiva_sicilia/")
+
+
+
+## These two packages are necessary
+ 
+library(knitr) 
 library(RWordPress)
-library(knitr)
+ 
+## In case your packages are not working well, these packages are pre-works
+ 
+library(XMLRPC)
+library(RCurl)
+library(reshape2)
+library(bitops)
 
 
 
-library(RWordPress, quietly = T, warn.conflicts = F)
-library(knitr, quietly = T, warn.conflicts = F)
-library(argparser, quietly = T, warn.conflicts = F)
-library(dplyr, quietly = T, warn.conflicts = F)
+## Login your wordpress, give your username, your password and your wordpress website URL (don't forget to add the /xmlrpc.php after your website address)
+ 
+options(WordPressLogin = c(filippobuscemi = 'Giovi1234'),
+        WordPressURL = 'http://www.filippobuscemi.com')
+
+
+## Import your Rmd file to your wordpress as a draft, replace the FileName with your real filename, replace the PostTitle with your real post title.
+ 
+knit2wp('descrittiva_sicilia.Rmd',
+        title = 'PostTite',
+        publish = FALSE,
+        action = "newPost")
+
+
+
+
+#library(XMLRPC)
+#library(RWordPress)
+#library(knitr)
+
+
+
+#library(RWordPress, quietly = T, warn.conflicts = F)
+#library(knitr, quietly = T, warn.conflicts = F)
+#library(argparser, quietly = T, warn.conflicts = F)
+#library(dplyr, quietly = T, warn.conflicts = F)
 
 # Parse script input arguments
-parser <- arg_parser("Inputs for wordpress script") %>% 
-    add_argument(help = "/home/primo/Scrivania/descrittiva_sicilia/descrittiva_sicilia.Rmd", arg = "file") %>%
-    add_argument(help = "title of post", arg = "title")
-args <- parse_args(parser)
+#parser <- arg_parser("Inputs for wordpress script") %>% 
+ #   add_argument(help = "/home/primo/Scrivania/descrittiva_sicilia/descrittiva_sicilia.Rmd", arg = "file") %>%
+  #  add_argument(help = "title of post", arg = "title")
+#args <- parse_args(parser)
 
 
 
 
 
 
-pw <- readLines(file("/home/primo/Scrivania/descrittiva_sicilia/pw.txt"))
-options(WordpressLogin = c(filippobuscemi = pw),
-        WordpressURL = "http://www.filippobuscemi.com")
+#pw <- readLines(file("/home/primo/Scrivania/descrittiva_sicilia/pw.txt"))
+#options(WordpressLogin = c(filippobuscemi = pw),
+      #  WordpressURL = "http://www.filippobuscemi.com")
 
-rmd_file <- args$file
+#rmd_file <- args$file
 # Post thumbnail
-cat <- c('general')
+#cat <- c('general')
 # Post thumbnail
-opts_knit$set(upload.fun = function(file){library(RWordPress);uploadFile(file)$url;})
-knit2wp(rmd_file, 
-        title = args$title,
-        categories = cat,
-        publish = TRUE)
+#opts_knit$set(upload.fun = function(file){library(RWordPress);uploadFile(file)$url;})
+#knit2wp(rmd_file, 
+       # title = args$title,
+      #  categories = cat,
+     #   publish = TRUE)
 
 
  #library(RWordPress)
