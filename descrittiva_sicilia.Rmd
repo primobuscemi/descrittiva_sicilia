@@ -28,6 +28,27 @@ knitr::opts_chunk$set(echo = FALSE, cache=TRUE,
                       tidy.opts=list(width.cutoff=60),
                       tidy=TRUE)
 
+knit2wp <- function(file) {
+    require(XML)
+    content <- readLines(file)
+    content <- htmlTreeParse(content, trim=FALSE)
+
+    ## WP will add the h1 header later based on the title, so delete here
+    content$children$html$children$body$children$h1 <- NULL
+    content <- paste(capture.output(print(content$children$html$children$body,
+                                          indent=FALSE, tagSeparator="")),
+                     collapse="\n")
+    content <- gsub("<?.body>", "", content)         # remove body tag
+    
+    ## enclose code snippets in SyntaxHighlighter format
+    content <- gsub("<?pre><code class=\"r\">", "\\[code lang='r'\\]\\\n",
+                    content)
+    content <- gsub("<?pre><code class=\"no-highlight\">", "\\[code\\]\\\n",
+                    content)
+    content <- gsub("<?pre><code>", "\\[code\\]\\\n", content)
+    content <- gsub("<?/code></pre>", "\\[/code\\]\\\n", content)
+    return(content)
+}
 
 library(tidyverse)
 library(magrittr)
@@ -54,17 +75,19 @@ library(EpiEstim)
 
 
  
-
+library(knitr)
 library(RWordPress)
 setwd("/home/primo/Scrivania/descrittiva_sicilia")
 
 #log into your wordpress account
-options(WordPressLogin = c(wordpress_login = 'Giovi1234'),
+options(WordPressLogin = c(user='filippobuscemi2020@libero.it',password='Giovi1234'),
         WordPressURL = 'https://filippobuscemi.com')
 #publish your work
-knit2wp('descrittiva_sicilia.Rmd', title = 'Publish from R Markdown to WordPress',publish = FALSE)
 
-
+newPost(content=list(description=knit2wp('descrittiva_sicilia.Rmd'),
+                     title='Workflow: Post R markdown to WordPress',
+                     categories=c('R')),
+        publish=FALSE)
 ```
 
 ```{r}
