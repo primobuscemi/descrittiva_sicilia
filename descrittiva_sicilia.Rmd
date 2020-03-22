@@ -74,20 +74,29 @@ library(projections)
 library(EpiEstim)
 
 
- 
-library(knitr)
-library(RWordPress)
-setwd("/home/primo/Scrivania/descrittiva_sicilia")
+ library(RWordPress)
+# Set your WP username, password, and your site URL
+options(WordpressLogin = c(filippobuscemi = 'Giovi1234'), 
+        WordpressURL = 'https://filippobuscemi.com/')
+# Create a line-by-line text vector
+text = paste(readLines("/home/primo/Scrivania/descrittiva_sicilia/descrittiva_sicilia.html"), collapse = "\n")
+# Send to Worpdress
+newPost(list(description = text, title = "Your post's title!"), publish = FALSE)
+
+
+#library(knitr)
+#library(RWordPress)
+#setwd("/home/primo/Scrivania/descrittiva_sicilia")
 
 #log into your wordpress account
-options(WordPressLogin = c(user='filippobuscemi2020@libero.it',password='Giovi1234'),
-        WordPressURL = 'https://filippobuscemi.com')
+#options(WordPressLogin = c(user='filippobuscemi2020@libero.it',password='Giovi1234'),
+        #WordPressURL = 'https://filippobuscemi.com')
 #publish your work
 
-newPost(content=list(description=knit2wp('descrittiva_sicilia.Rmd'),
-                     title='Workflow: Post R markdown to WordPress',
-                     categories=c('R')),
-        publish=FALSE)
+#newPost(content=list(description=knit2wp('descrittiva_sicilia.Rmd'),
+     #                title='Workflow: Post R markdown to WordPress',
+    #                 categories=c('R')),
+ #       publish=FALSE)
 ```
 
 ```{r}
