@@ -23,9 +23,9 @@ repository_url: https://github.com/timchurches/blog/tree/master/_posts/2020-02-1
 ```{r setup, include=FALSE}
 version <- "1.8"
 version_date <- lubridate::ymd("2020-02-28")
- #knitr::opts_chunk$set(echo = FALSE, cache=TRUE,
-            #          tidy.opts=list(width.cutoff=60),
-           #           tidy=TRUE)
+ knitr::opts_chunk$set(echo = FALSE, cache=TRUE,
+                      tidy.opts=list(width.cutoff=60),
+                     tidy=TRUE, fig.path = "images/")
 
 #knit2wp <- function(file) {
     #require(XML)
@@ -223,6 +223,7 @@ kable(df1)
 
 df2 <- data.frame(tamponi_oggi, isolamento_domiciliare_oggi, ricoverati_con_sintomi_oggi, terapia_intensiva_oggi )
 kable(df2)
+plot(sicilia$deceduti)
 
 ```
 
