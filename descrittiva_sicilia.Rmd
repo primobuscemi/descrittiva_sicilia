@@ -227,6 +227,9 @@ kable(df1)
 df2 <- data.frame(tamponi_oggi,nuovi_attualmente_positivi, isolamento_domiciliare_oggi, ricoverati_con_sintomi_oggi, terapia_intensiva_oggi )
 kable(df2)
 
+df2 <- data.frame(deceduti,deceduti_oggi, dimessi_guariti, dimessi_guariti_oggi)
+kable(df2)
+
 ```
 
 ## Nuovi casi
