@@ -28,27 +28,27 @@ knitr::opts_chunk$set(echo = FALSE, cache=TRUE,
                       tidy.opts=list(width.cutoff=60),
                       tidy=TRUE)
 
-knit2wp <- function(file) {
-    require(XML)
-    content <- readLines(file)
-    content <- htmlTreeParse(content, trim=FALSE)
+#knit2wp <- function(file) {
+    #require(XML)
+   # content <- readLines(file)
+   # content <- htmlTreeParse(content, trim=FALSE)
 
     ## WP will add the h1 header later based on the title, so delete here
-    content$children$html$children$body$children$h1 <- NULL
-    content <- paste(capture.output(print(content$children$html$children$body,
-                                          indent=FALSE, tagSeparator="")),
-                     collapse="\n")
-    content <- gsub("<?.body>", "", content)         # remove body tag
+   # content$children$html$children$body$children$h1 <- NULL
+  #  content <- paste(capture.output(print(content$children$html$children$body,
+  #                                        indent=FALSE, tagSeparator="")),
+  #                   collapse="\n")
+  #  content <- gsub("<?.body>", "", content)         # remove body tag
     
     ## enclose code snippets in SyntaxHighlighter format
-    content <- gsub("<?pre><code class=\"r\">", "\\[code lang='r'\\]\\\n",
-                    content)
-    content <- gsub("<?pre><code class=\"no-highlight\">", "\\[code\\]\\\n",
-                    content)
-    content <- gsub("<?pre><code>", "\\[code\\]\\\n", content)
-    content <- gsub("<?/code></pre>", "\\[/code\\]\\\n", content)
-    return(content)
-}
+  #  content <- gsub("<?pre><code class=\"r\">", "\\[code lang='r'\\]\\\n",
+   #                 content)
+   # content <- gsub("<?pre><code class=\"no-highlight\">", "\\[code\\]\\\n",
+   #                 content)
+  #  content <- gsub("<?pre><code>", "\\[code\\]\\\n", content)
+ #   content <- gsub("<?/code></pre>", "\\[/code\\]\\\n", content)
+  #  return(content)
+#}
 
 library(tidyverse)
 library(magrittr)
@@ -92,9 +92,7 @@ args <- parse_args(parser)
 
 
 
-cat <- c('general')
-# Post thumbnail
-opts_knit$set(upload.fun = function(file){library(RWordPress);uploadFile(file)$url;})
+
 
 
 pw <- readLines(file("/home/primo/Scrivania/descrittiva_sicilia/pw.txt"))
@@ -103,11 +101,15 @@ options(WordpressLogin = c(filippobuscemi = pw),
 
 rmd_file <- args$file
 # Post thumbnail
-
+cat <- c('general')
+# Post thumbnail
+opts_knit$set(upload.fun = function(file){library(RWordPress);uploadFile(file)$url;})
 knit2wp(rmd_file, 
         title = args$title,
         categories = cat,
         publish = TRUE)
+
+
  #library(RWordPress)
 # Set your WP username, password, and your site URL
 #options(WordpressLogin = c(filippobuscemi = 'Giovi1234'), 
