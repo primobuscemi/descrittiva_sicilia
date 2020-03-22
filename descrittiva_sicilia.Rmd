@@ -28,8 +28,6 @@ knitr::opts_chunk$set(echo = FALSE, cache=TRUE,
                       tidy.opts=list(width.cutoff=60),
                       tidy=TRUE)
 
-setwd("/home/primo/Scrivania/descrittiva_sicilia")
-knit2wp('descrittiva_sicilia.Rmd', title = 'Situazione Sicilia',publish = FALSE, action="newPost")
 
 library(tidyverse)
 library(magrittr)
@@ -53,6 +51,18 @@ library(lubridate)
 library(earlyR)
 library(projections)
 library(EpiEstim)
+
+
+ library(RWordPress)
+
+# Tell RWordPress how to set the user name, password, and URL for your WordPress site.
+options(WordPressLogin = c( user='filippobuscemi2020@libero.it', password ='Giovi1234'),
+        WordPressURL = 'https://filippobuscemi.com/')
+
+library(knitr)
+setwd("/home/primo/Scrivania/descrittiva_sicilia")
+knit2wp('descrittiva_sicilia.Rmd', title = 'Situazione Sicilia',publish = FALSE, action="newPost")
+
 
 ```
 
@@ -120,16 +130,16 @@ Il totale dei casi registrati di COVID-19 è `r totale_casi`.
 ```{r}
 #activate the necessary libraries
 
- library(RWordPress)
 
-# Tell RWordPress how to set the user name, password, and URL for your WordPress site.
-options(WordPressLogin = c( filippobuscemi2020@libero.it ='Giovi1234'),
-        WordPressURL = 'https://filippobuscemi.com/')
 
 ```
 
 
 
+```{r}
+
+
+```
 
 
 
