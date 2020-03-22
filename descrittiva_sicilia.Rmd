@@ -26,7 +26,8 @@ version <- "1.8"
 version_date <- lubridate::ymd("2020-02-28")
 knitr::opts_chunk$set(echo = FALSE, cache=TRUE,
                       tidy.opts=list(width.cutoff=60),
-                      tidy=TRUE)
+                      tidy=TRUE,WordPressLogin = c( user='filippobuscemi2020@libero.it', password='Giovi1234'),
+        WordPressURL = 'https://filippobuscemi.com/')
 
 
 library(tidyverse)
@@ -121,17 +122,14 @@ Il totale dei casi registrati di COVID-19 è `r totale_casi`.
 
 
 
-```{r prova}
+```{r }
 
 library(RWordPress)
 
 # Tell RWordPress how to set the user name, password, and URL for your WordPress site.
-#options(WordPressLogin = c( user='filippobuscemi2020@libero.it', password='Giovi1234'),
-        #WordPressURL = 'https://filippobuscemi.com/')
 
-library(knitr)
 setwd("/home/primo/Scrivania/descrittiva_sicilia")
-knit2wp('descrittiva_sicilia.Rmd', title = 'Situazione Sicilia',publish = FALSE, action="newPost")
+knit2wp('descrittiva_sicilia.Rmd', title = 'Situazione Sicilia',publish = FALSE, action=c("newPost"))
 ```
 
 
