@@ -73,7 +73,22 @@ library(earlyR)
 library(projections)
 library(EpiEstim)
 
+library(XMLRPC)
+library(RWordPress)
+library(knitr)
 
+pw <- readLines(file("/home/primo/Scrivania/descrittiva_sicilia/pw.txt"))
+options(WordpressLogin = c(filippobuscemi = pw),
+        WordpressURL = "http://www.filippobuscemi.com")
+
+rmd_file <- args$file
+# Post thumbnail
+opts_knit$set(upload.fun = function(file){library(RWordPress);uploadFile(file)$url;})
+
+knit2wp("/home/primo/Scrivania/descrittiva_sicilia/descrittiva_sicilia.Rmd", 
+        title = args$title,
+        categories = cat,
+        publish = TRUE)
  #library(RWordPress)
 # Set your WP username, password, and your site URL
 #options(WordpressLogin = c(filippobuscemi = 'Giovi1234'), 
