@@ -48,7 +48,6 @@ library(lubridate)
 library(earlyR)
 library(projections)
 library(EpiEstim)
-require(knitr)
 
 ```
 
@@ -115,10 +114,11 @@ Il totale dei casi registrati di COVID-19 è `r totale_casi`.
 
 ```{r}
 #activate the necessary libraries
-library(RWordPress)
+
+ library(RWordPress)
 
 # Tell RWordPress how to set the user name, password, and URL for your WordPress site.
-options(WordPressLogin = c(user = 'filippobuscemi2020@libero.it', password ='Giovi1234'),
+options(WordPressLogin = c( user ='Giovi1234'),
         WordPressURL = 'https://filippobuscemi.com/')
 
 ```
@@ -129,10 +129,10 @@ options(WordPressLogin = c(user = 'filippobuscemi2020@libero.it', password ='Gio
 #?knit2wp
 
 # If need be, set your working directory to the location where you stored the Rmd file. 
-setwd("/home/primo/Scrivania/descrittiva_sicilia")
+#setwd("/home/primo/Scrivania/descrittiva_sicilia")
 
 # Tell knitr to create the html code and upload it to your WordPress site
-knit2wp('descrittiva_sicilia.Rmd', title = 'Situazione Sicilia',publish = FALSE)
+knit2wp('descrittiva_sicilia.Rmd', title = 'Situazione Sicilia',publish = FALSE, action="newPost")
 
 ```
 

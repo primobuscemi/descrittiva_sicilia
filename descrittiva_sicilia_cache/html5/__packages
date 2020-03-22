@@ -25,3 +25,6 @@ naniar
 earlyR
 kableExtra
 RWordPress
+knitr
+usethis
+devtools
