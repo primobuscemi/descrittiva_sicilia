@@ -232,7 +232,7 @@ kable(df2)
 ## Nuovi casi
 
 Ad oggi (`r today()`) sono stati effettuati `r tamponi` tamponi. Nelle ultime 24 ore ne sono stati effettuati `r tamponi_oggi`.
-I nuovi casi (positivi al tampone... link alla who per definizione di caso) sono `r  nuovi_attualmente_positivi`. Rispetto al bilancio della giornata di ieri, il numero delle persone risultate positive al tampone in un solo giorno è aumentato (`r nuovi_attualmente_positivi_oggi` persone in più). 
+I nuovi casi (positivi al tampone, sia ospedalizzati che in isolamento domiciliare) sono `r  nuovi_attualmente_positivi`. Rispetto al bilancio della giornata di ieri, il numero delle persone risultate positive al tampone in un solo giorno è aumentato (`r nuovi_attualmente_positivi_oggi` persone in più). 
 
 I pazienti positivi al COVID-19 (ospedalizzati + isolamento domiciliare) in Sicilia sono in totale `r totale_attualmente_positivi`. 
 
@@ -252,7 +252,7 @@ Nella giornata di oggi sono decedute `r deceduti_oggi` persone. Dall'inizio dell
 #I pazienti guariti nell'ultimo giorno sono `r dimessi_guariti_oggi`.
 ```
 
- Dall'inizio dell'epidemia sono guarite in totale `r dimessi_guariti` persone.
+Sono guarite in totale `r dimessi_guariti` persone dall'inizio dell'epidemia.
 
 
 ## Totale attualmente positivi - incidenza cumulativa
