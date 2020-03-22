@@ -199,7 +199,7 @@ nuovi_attualmente_positivi <-  tail(sicilia$nuovi_attualmente_positivi, n=1)
 nuovi_attualmente_positivi_oggi <-  tail(diff(sicilia$nuovi_attualmente_positivi), n=1)
 
 totale_attualmente_positivi <- tail(sicilia$totale_attualmente_positivi, n=1)
-totale_attualmente_positivi_oggi <- tail(sicilia$totale_attualmente_positivi_oggi, n=1)
+totale_attualmente_positivi_oggi <- tail(sicilia$totale_attualmente_positivi, n=1)
 
 isolamento_domiciliare  <- tail(sicilia$isolamento_domiciliare, n=1)
 isolamento_domiciliare_oggi <- tail(diff(sicilia$isolamento_domiciliare), n=1)
@@ -227,8 +227,10 @@ plot(sicilia$deceduti)
 
 ```
 
-Ad oggi, sono stati effettuati `r tamponi` tamponi. Nelle ultime 24 ore, ne sono stati effettuati `r tamponi_oggi`.
-I nuovi casi (positivi al tampone... link alla who per definizione di caso) sono `r  nuovi_attualmente_positivi`. Rispetto a ieri, sono positive `r nuovi_attualmente_positivi_oggi` persone in più. I pazienti positivi al COVID-19 in Sicilia sono in tutto `r totale_attualmente_positivi`. Rispetto a ieri, `r totale_attualmente_positivi_oggi` sono positivi al coronavirus. Le persone positive al coronavirus in isolamento domiciliare sono `r isolamento_domiciliare`. Rispetto a ieri `r isolamento_domiciliare_oggi` persone in più sono in isolamento domiciliare. Il totale dei pazienti ospedalizzati è `r totale_ospedalizzati`, rispetto alla giornata di ieri sono state ospedalizzate `r totale_ospedalizzati_oggi` in più. Sono `r ricoverati_con_sintomi` i pazienti ricoverati con sintomi. Esclusa la terapia intensiva, i ricoveri ospedalieri sono `r ricoverati_con_sintomi_oggi` in più rispetto a ieri. I pazienti ricoverati in terapia intensiva sono `r terapia_intensiva`, `r terapia_intensiva_oggi` in più rispetto a ieri.  Nella giornata di oggi sono decedute `r deceduti_oggi` persone. Dall'inizio dell'epidemia sono decedute `r deceduti` persone.
+Ad oggi sono stati effettuati `r tamponi` tamponi. Nelle ultime 24 ore ne sono stati effettuati `r tamponi_oggi`.
+I nuovi casi (positivi al tampone... link alla who per definizione di caso) sono `r  nuovi_attualmente_positivi`. Rispetto al bilancio della giornata di ieri, il numero delle persone positive al tampone in un solo giorno è aumentato (`r nuovi_attualmente_positivi_oggi` persone in più).
+
+I pazienti positivi al COVID-19 in Sicilia oggi sono in totale `r totale_attualmente_positivi`. Rispetto a ieri, `r totale_attualmente_positivi_oggi` sono positivi al coronavirus. Le persone positive al coronavirus in isolamento domiciliare sono `r isolamento_domiciliare`. Rispetto a ieri `r isolamento_domiciliare_oggi` persone in più sono in isolamento domiciliare. Il totale dei pazienti ospedalizzati è `r totale_ospedalizzati`, rispetto alla giornata di ieri sono state ospedalizzate `r totale_ospedalizzati_oggi` in più. Sono `r ricoverati_con_sintomi` i pazienti ricoverati con sintomi. Esclusa la terapia intensiva, i ricoveri ospedalieri sono `r ricoverati_con_sintomi_oggi` in più rispetto a ieri. I pazienti ricoverati in terapia intensiva sono `r terapia_intensiva`, `r terapia_intensiva_oggi` in più rispetto a ieri.  Nella giornata di oggi sono decedute `r deceduti_oggi` persone. Dall'inizio dell'epidemia sono decedute `r deceduti` persone.
 Il totale dei casi registrati di COVID-19 è `r totale_casi`.
 
 
