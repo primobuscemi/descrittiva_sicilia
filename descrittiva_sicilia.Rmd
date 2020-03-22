@@ -23,9 +23,9 @@ repository_url: https://github.com/timchurches/blog/tree/master/_posts/2020-02-1
 ```{r setup, include=FALSE}
 version <- "1.8"
 version_date <- lubridate::ymd("2020-02-28")
-knitr::opts_chunk$set(echo = FALSE, cache=TRUE,
-                      tidy.opts=list(width.cutoff=60),
-                      tidy=TRUE)
+ #knitr::opts_chunk$set(echo = FALSE, cache=TRUE,
+            #          tidy.opts=list(width.cutoff=60),
+           #           tidy=TRUE)
 
 #knit2wp <- function(file) {
     #require(XML)
@@ -96,14 +96,14 @@ library(bitops)
 ## Login your wordpress, give your username, your password and your wordpress website URL (don't forget to add the /xmlrpc.php after your website address)
  
 options(WordPressLogin = c(filippobuscemi = 'Giovi1234'),
-        WordPressURL = 'http://www.filippobuscemi.com')
+        WordPressURL = 'https://filippobuscemi.com/xmlrpc.php')
 
 
 ## Import your Rmd file to your wordpress as a draft, replace the FileName with your real filename, replace the PostTitle with your real post title.
  
-knit2wp('descrittiva_sicilia.Rmd',
+knit2wp('/home/primo/Scrivania/descrittiva_sicilia/descrittiva_sicilia.Rmd',
         title = 'PostTite',
-        publish = FALSE,
+        publish = TRUE,
         action = "newPost")
 
 
