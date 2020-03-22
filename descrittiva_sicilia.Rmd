@@ -13,8 +13,10 @@ base_url: https://timchurches.github.io/blog/
 twitter:
   creator: "@timchurches"
 output:
- md_document:
-    variant: markdown_phpextra+backtick_code_blocks
+  distill::distill_article:
+    toc: true
+    toc_depth: 2
+    self_contained: false
 repository_url: https://github.com/timchurches/blog/tree/master/_posts/2020-02-18-analysing-covid-19-2019-ncov-outbreak-data-with-r-part-1
 ---
 
@@ -73,36 +75,36 @@ library(EpiEstim)
 
 ## Set the working directory to the file you are going to publish
  
-setwd("/home/primo/Scrivania/descrittiva_sicilia/")
+#setwd("/home/primo/Scrivania/descrittiva_sicilia/")
 
 
 
 ## These two packages are necessary
  
-library(knitr) 
-library(RWordPress)
+#library(knitr) 
+#library(RWordPress)
  
 ## In case your packages are not working well, these packages are pre-works
  
-library(XMLRPC)
-library(RCurl)
-library(reshape2)
-library(bitops)
+#library(XMLRPC)
+#library(RCurl)
+#library(reshape2)
+#library(bitops)
 
 
 
 ## Login your wordpress, give your username, your password and your wordpress website URL (don't forget to add the /xmlrpc.php after your website address)
  
-options(WordPressLogin = c(filippobuscemi = 'Giovi1234'),
-        WordPressURL = 'https://filippobuscemi.com/xmlrpc.php')
+#options(WordPressLogin = c(filippobuscemi = 'Giovi1234'),
+   #     WordPressURL = 'https://filippobuscemi.com/xmlrpc.php')
 
 
 ## Import your Rmd file to your wordpress as a draft, replace the FileName with your real filename, replace the PostTitle with your real post title.
  
-knit2wp('/home/primo/Scrivania/descrittiva_sicilia/descrittiva_sicilia.Rmd',
-        title = 'PostTite',
-        publish = TRUE,
-        action = "newPost")
+#knit2wp('descrittiva_sicilia.Rmd',
+    #    title = 'PostTite',
+    #    publish = TRUE,
+    #    action = "newPost")
 
 
 
