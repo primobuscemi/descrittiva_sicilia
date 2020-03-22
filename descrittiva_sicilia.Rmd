@@ -21,11 +21,16 @@ repository_url: https://github.com/timchurches/blog/tree/master/_posts/2020-02-1
 ---
 
 ```{r setup, include=FALSE}
+
 version <- "1.8"
 version_date <- lubridate::ymd("2020-02-28")
 knitr::opts_chunk$set(echo = FALSE, cache=TRUE,
                       tidy.opts=list(width.cutoff=60),
                       tidy=TRUE)
+
+setwd("/home/primo/Scrivania/descrittiva_sicilia")
+knit2wp('descrittiva_sicilia.Rmd', title = 'Situazione Sicilia',publish = FALSE, action="newPost")
+
 library(tidyverse)
 library(magrittr)
 library(lubridate)
@@ -118,23 +123,13 @@ Il totale dei casi registrati di COVID-19 è `r totale_casi`.
  library(RWordPress)
 
 # Tell RWordPress how to set the user name, password, and URL for your WordPress site.
-options(WordPressLogin = c( user ='Giovi1234'),
+options(WordPressLogin = c( filippobuscemi2020@libero.it ='Giovi1234'),
         WordPressURL = 'https://filippobuscemi.com/')
 
 ```
 
 
-```{r}
-# Optional: If you want to see all of the knit2wp arguments that are possible, run this line.
-#?knit2wp
 
-# If need be, set your working directory to the location where you stored the Rmd file. 
-setwd("/home/primo/Scrivania/descrittiva_sicilia")
-
-# Tell knitr to create the html code and upload it to your WordPress site
-knit2wp('/home/primo/Scrivania/descrittiva_sicilia/descrittiva_sicilia.Rmd', title = 'Situazione Sicilia',publish = FALSE, action="newPost")
-
-```
 
 
 
