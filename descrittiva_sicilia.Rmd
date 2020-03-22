@@ -129,10 +129,10 @@ options(WordPressLogin = c( user ='Giovi1234'),
 #?knit2wp
 
 # If need be, set your working directory to the location where you stored the Rmd file. 
-#setwd("/home/primo/Scrivania/descrittiva_sicilia")
+setwd("/home/primo/Scrivania/descrittiva_sicilia")
 
 # Tell knitr to create the html code and upload it to your WordPress site
-knit2wp('descrittiva_sicilia.Rmd', title = 'Situazione Sicilia',publish = FALSE, action="newPost")
+knit2wp('/home/primo/Scrivania/descrittiva_sicilia/descrittiva_sicilia.Rmd', title = 'Situazione Sicilia',publish = FALSE, action="newPost")
 
 ```
 
