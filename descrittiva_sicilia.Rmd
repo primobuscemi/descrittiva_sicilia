@@ -223,7 +223,6 @@ kable(df1)
 
 df2 <- data.frame(tamponi_oggi, isolamento_domiciliare_oggi, ricoverati_con_sintomi_oggi, terapia_intensiva_oggi )
 kable(df2)
-plot(sicilia$deceduti)
 
 ```
 
@@ -232,13 +231,27 @@ I nuovi casi (positivi al tampone... link alla who per definizione di caso) sono
 
 I pazienti positivi al COVID-19 in Sicilia  sono in totale `r totale_attualmente_positivi`. Le persone positive al coronavirus in isolamento domiciliare sono `r isolamento_domiciliare`. Rispetto a ieri, sono `r isolamento_domiciliare_oggi` le persone in più in isolamento domiciliare.
 
-Il totale dei pazienti ospedalizzati è `r totale_ospedalizzati`, rispetto alla giornata di ieri sono state ricoverate `r totale_ospedalizzati_oggi` in più. I pazienti ricoverati con sintomi sono `r ricoverati_con_sintomi`. Esclusa la terapia intensiva, i ricoveri ospedalieri sono `r ricoverati_con_sintomi_oggi` in più rispetto a ieri. I pazienti ricoverati in terapia intensiva sono `r terapia_intensiva`, `r terapia_intensiva_oggi` in più rispetto a ieri.
+Il totale dei pazienti ospedalizzati è `r totale_ospedalizzati`. Rispetto alla giornata di ieri, sono state ricoverate `r totale_ospedalizzati_oggi` persone in più. I pazienti ricoverati con sintomi sono `r ricoverati_con_sintomi`. Esclusa la terapia intensiva, i ricoveri ospedalieri sono `r ricoverati_con_sintomi_oggi` in più rispetto a ieri. I pazienti ricoverati in terapia intensiva sono `r terapia_intensiva` (`r terapia_intensiva_oggi` in più rispetto a ieri).
 
 Nella giornata di oggi sono decedute `r deceduti_oggi` persone. Dall'inizio dell'epidemia sono decedute `r deceduti` persone. Il totale dei casi registrati di COVID-19 dall'inizio dell'epidemia è `r totale_casi`.
 
 
 
+## Totali attualmente positivi - incidenza cumulativa
 
+
+
+```{r}
+library(lubridate)
+cumulativa <- cumsum(as.numeric(as.vector(sicilia$V12)))
+sic_date<- as.Date(sicilia$V1,format="%Y-%m-%d")
+sicilia <- sicilia %>% mutate(cumulativa=cumulativa, date=sic_date)
+
+
+ggplot(data= sicilia,  aes(x=date, cumulativa)) + geom_point(color='red3') + geom_line(color='red3') + scale_y_log10() + theme(legend.position = "none", 
+          strip.text.y = element_text(size=11))
+
+```
 
 
 
