@@ -221,14 +221,11 @@ dimessi_guariti_oggi <- tail(diff(sicilia$dimessi_guariti), n=1)
 
 totale_casi  <- tail(sicilia$totale_casi, n=1)
 
-df1 <- data.frame(tamponi, totale_attualmente_positivi, isolamento_domiciliare, ricoverati_con_sintomi, terapia_intensiva )
-kable(df1)
 
-df2 <- data.frame(tamponi_oggi,nuovi_attualmente_positivi, isolamento_domiciliare_oggi, ricoverati_con_sintomi_oggi, terapia_intensiva_oggi )
-kable(df2)
 
-df2 <- data.frame(deceduti,deceduti_oggi, dimessi_guariti, dimessi_guariti_oggi)
-kable(df2)
+
+
+
 
 ```
 
@@ -246,6 +243,23 @@ Le persone positive al coronavirus in isolamento domiciliare sono `r isolamento_
 
 Il totale dei pazienti ospedalizzati è `r totale_ospedalizzati`. Rispetto alla giornata di ieri, sono state ricoverate `r totale_ospedalizzati_oggi` persone in più. I pazienti ricoverati con sintomi sono `r ricoverati_con_sintomi`. Esclusa la terapia intensiva, i ricoveri ospedalieri sono `r ricoverati_con_sintomi_oggi` in più rispetto a ieri. I pazienti ricoverati in terapia intensiva sono `r terapia_intensiva` (`r terapia_intensiva_oggi` in più rispetto a ieri).
 
+### In totale
+
+```{r}
+df1 <- data.frame(tamponi, totale_attualmente_positivi, isolamento_domiciliare, ricoverati_con_sintomi, terapia_intensiva )
+kable(df1)
+
+```
+
+### Nelle ultime 24 ore
+
+```{r}
+df2 <- data.frame(tamponi_oggi,nuovi_attualmente_positivi, isolamento_domiciliare_oggi, ricoverati_con_sintomi_oggi, terapia_intensiva_oggi )
+kable(df2)
+
+```
+
+
 ## Decessi
 
 Nella giornata di oggi sono decedute `r deceduti_oggi` persone. Dall'inizio dell'epidemia sono decedute `r deceduti` persone. Il totale dei casi registrati di COVID-19 dall'inizio dell'epidemia è `r totale_casi`.
@@ -256,6 +270,14 @@ Nella giornata di oggi sono decedute `r deceduti_oggi` persone. Dall'inizio dell
 ```
 
 Sono guarite in totale `r dimessi_guariti` persone dall'inizio dell'epidemia.
+
+
+```{r}
+df3 <- data.frame(deceduti,deceduti_oggi, dimessi_guariti, dimessi_guariti_oggi)
+kable(df3)
+
+```
+
 
 
 ## Totale attualmente positivi - incidenza cumulativa
