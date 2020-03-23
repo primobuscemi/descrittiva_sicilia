@@ -89,7 +89,7 @@ sicilia <- dati_it %>% filter(denominazione_regione=="Sicilia")
 
 ```
 
-*dati aggiornati al `r tail(sicilia$data,n=1)`*
+*[dati del Dipartimento della Protezione Civile](https://github.com/pcm-dpc/COVID-19) aggiornati al `r tail(sicilia$data,n=1)`  *
 
 ```{r}
 
