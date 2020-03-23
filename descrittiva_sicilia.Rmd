@@ -89,7 +89,7 @@ sicilia <- dati_it %>% filter(denominazione_regione=="Sicilia")
 
 ```
 
-*[dati del Dipartimento della Protezione Civile](https://github.com/pcm-dpc/COVID-19) aggiornati al `r tail(sicilia$data,n=1)`  *
+
 
 ```{r}
 
@@ -221,7 +221,7 @@ ggplot(data= sicilia,  aes(x=date, cumulativa)) + geom_point(color='red3') + geo
 ```
 
 
-
+*[dati del Dipartimento della Protezione Civile](https://github.com/pcm-dpc/COVID-19) aggiornati al `r tail(sicilia$data,n=1)`  *
 
 
 
