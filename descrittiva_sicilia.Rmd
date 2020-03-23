@@ -150,7 +150,8 @@ Il totale dei pazienti ospedalizzati è `r totale_ospedalizzati`. Rispetto alla 
 ```{r}
 df1 <- data.frame(tamponi, totale_attualmente_positivi, isolamento_domiciliare, ricoverati_con_sintomi, terapia_intensiva)
 names(df1) <- c("tamponi", "nuovi positivi", "isolamento domiciliare", "ricoverati con sintomi", "terapia intensiva")
-kable(df1)
+kable(df1, "html", booktabs = T, digits=2) %>%
+kable_styling(position = "left")
 
 ```
 
