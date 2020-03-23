@@ -93,7 +93,7 @@ sicilia <- dati_it %>% filter(denominazione_regione=="Sicilia")
 
 ```
 
-# COVID-19 : la situazione in Sicilia - `r today()`
+## dati aggiornati al `r today()`
 
 ```{r}
 
