@@ -187,7 +187,7 @@ kable(df3)
 
 
 
-```{r}
+```{r, warning=FALSE}
 library(lubridate)
 cumulativa <- cumsum(as.numeric(as.vector(sicilia$nuovi_attualmente_positivi)))
 sic_date<- as.Date(sicilia$data,format="%Y-%m-%d")
