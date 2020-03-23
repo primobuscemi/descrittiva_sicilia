@@ -1,11 +1,10 @@
 ---
 title: "COVID-19: la situazione in Sicilia"
+  size: 3
 categories:
   - R
   - "COVID-19"
   - "Sicilia"
-author:
-  - name: Primo Buscemi
 creative_commons: CC BY-SA
 base_url: https://timchurches.github.io/blog/
 twitter:
