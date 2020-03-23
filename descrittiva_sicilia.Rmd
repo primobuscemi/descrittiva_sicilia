@@ -1,5 +1,5 @@
 ---
-title: h3("prova")
+title: ""
 categories:
   - R
   - "COVID-19"
@@ -148,7 +148,8 @@ Il totale dei pazienti ospedalizzati è `r totale_ospedalizzati`. Rispetto alla 
 *In totale*
 
 ```{r}
-df1 <- data.frame(tamponi, totale_attualmente_positivi, isolamento_domiciliare, ricoverati_con_sintomi, terapia_intensiva )
+df1 <- data.frame(tamponi, totale_attualmente_positivi, isolamento_domiciliare, ricoverati_con_sintomi, terapia_intensiva)
+names(df1) <- c("tamponi", "nuovi positivi", "isolamento domiciliare", "ricoverati con sintomi", "terapia intensiva")
 kable(df1)
 
 ```
