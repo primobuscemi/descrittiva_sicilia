@@ -183,15 +183,23 @@ Sono guarite in totale `r dimessi_guariti` persone dall'inizio dell'epidemia.
 
 *Nelle ultime 24 ore*
 
+```{r}
+df3 <- data.frame(deceduti_oggi,  dimessi_guariti_oggi)
+names(df3) <- c("deceduti", "guariti")
+kable(df3, "html", booktabs = T, digits=2) %>%
+kable_styling(position = "center")
 
+```
 
 
 
 *In totale*
-```{r}
-df3 <- data.frame(deceduti,deceduti_oggi, dimessi_guariti, dimessi_guariti_oggi)
-kable(df3)
 
+```{r}
+df4 <- data.frame(deceduti, dimessi_guariti)
+names(df4) <- c("deceduti", "guariti")
+kable(df4, "html", booktabs = T, digits=2) %>%
+kable_styling(position = "center")
 ```
 
 
