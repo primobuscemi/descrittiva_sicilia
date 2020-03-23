@@ -149,7 +149,7 @@ Il totale dei pazienti ospedalizzati è `r totale_ospedalizzati`. Rispetto alla 
 
 ```{r}
 df1 <- data.frame(tamponi, totale_attualmente_positivi, isolamento_domiciliare, ricoverati_con_sintomi, terapia_intensiva)
-names(df1) <- c("tamponi", "nuovi positivi", "isolamento domiciliare", "ricoverati con sintomi", "terapia intensiva")
+names(df1) <- c("tamponi", "positivi", "isolamento domiciliare", "ricoverati con sintomi", "terapia intensiva")
 kable(df1, "html", booktabs = T, digits=2) %>%
 kable_styling(position = "left")
 
@@ -158,8 +158,11 @@ kable_styling(position = "left")
 *Nelle ultime 24 ore*
 
 ```{r}
-df2 <- data.frame(tamponi_oggi,nuovi_attualmente_positivi, isolamento_domiciliare_oggi, ricoverati_con_sintomi_oggi, terapia_intensiva_oggi )
-kable(df2)
+df2 <- data.frame(tamponi_oggi, nuovi_attualmente_positivi, isolamento_domiciliare_oggi, ricoverati_con_sintomi_oggi, terapia_intensiva_oggi )
+names(df2) <- c("tamponi", "nuovi positivi","isolamento domiciliare", "ricoverati con sintomi", "terapia intensiva")
+kable(df2, "html", booktabs = T, digits=2) %>%
+kable_styling(position = "left")
+
 
 ```
 
