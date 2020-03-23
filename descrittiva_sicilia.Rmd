@@ -1,6 +1,4 @@
 ---
-title: "Analisi descrittiva COVID-19: Sicilia"
-description: "analisi descrittiva."
 categories:
   - R
   - "COVID-19"
@@ -8,7 +6,6 @@ categories:
 author:
   - name: Primo Buscemi
 creative_commons: CC BY-SA
-date: "2020-03-15"
 base_url: https://timchurches.github.io/blog/
 twitter:
   creator: "@timchurches"
@@ -93,7 +90,7 @@ sicilia <- dati_it %>% filter(denominazione_regione=="Sicilia")
 
 ```
 
-## dati aggiornati al `r today()`
+dati aggiornati al `r today()`
 
 ```{r}
 
@@ -134,7 +131,7 @@ totale_casi  <- tail(sicilia$totale_casi, n=1)
 
 ```
 
-## Nuovi casi
+### Nuovi casi
 
 Ad oggi (`r today()`) sono stati effettuati `r tamponi` tamponi. Nelle ultime 24 ore ne sono stati effettuati `r tamponi_oggi`.
 
@@ -142,14 +139,14 @@ I nuovi casi (positivi al tampone, sia ospedalizzati che in isolamento domicilia
 
 I pazienti positivi al COVID-19 (ospedalizzati + isolamento domiciliare) in Sicilia sono in totale `r totale_attualmente_positivi`. 
 
-## Isolamento domiciliare
+### Isolamento domiciliare
 Le persone positive al coronavirus in isolamento domiciliare sono `r isolamento_domiciliare`. Rispetto a ieri, sono `r isolamento_domiciliare_oggi` le persone in più in isolamento domiciliare.
 
-## Pazienti ospedalizzati
+### Pazienti ospedalizzati
 
 Il totale dei pazienti ospedalizzati è `r totale_ospedalizzati`. Rispetto alla giornata di ieri, sono state ricoverate `r totale_ospedalizzati_oggi` persone in più. I pazienti ricoverati con sintomi sono `r ricoverati_con_sintomi`. I ricoveri ospedalieri sono `r ricoverati_con_sintomi_oggi` in più rispetto a ieri. I pazienti ricoverati in terapia intensiva sono `r terapia_intensiva` (`r terapia_intensiva_oggi` in più rispetto a ieri).
 
-### In totale
+*In totale*
 
 ```{r}
 df1 <- data.frame(tamponi, totale_attualmente_positivi, isolamento_domiciliare, ricoverati_con_sintomi, terapia_intensiva )
@@ -157,7 +154,7 @@ kable(df1)
 
 ```
 
-### Nelle ultime 24 ore
+*Nelle ultime 24 ore*
 
 ```{r}
 df2 <- data.frame(tamponi_oggi,nuovi_attualmente_positivi, isolamento_domiciliare_oggi, ricoverati_con_sintomi_oggi, terapia_intensiva_oggi )
@@ -166,11 +163,11 @@ kable(df2)
 ```
 
 
-## Decessi
+### Decessi
 
 Nella giornata di oggi sono decedute `r deceduti_oggi` persone. Dall'inizio dell'epidemia sono decedute `r deceduti` persone. Il totale dei casi registrati di COVID-19 dall'inizio dell'epidemia è `r totale_casi`.
 
-## Guariti
+### Guariti
 ```{r}
 #I pazienti guariti nell'ultimo giorno sono `r dimessi_guariti_oggi`.
 ```
@@ -186,7 +183,7 @@ kable(df3)
 
 
 
-## Totale attualmente positivi - incidenza cumulativa
+### Totale attualmente positivi - incidenza cumulativa
 
 
 
