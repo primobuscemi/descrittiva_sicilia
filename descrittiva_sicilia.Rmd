@@ -145,16 +145,6 @@ Le persone positive al coronavirus in isolamento domiciliare sono `r isolamento_
 
 Il totale dei pazienti ospedalizzati è `r totale_ospedalizzati`. Rispetto alla giornata di ieri, sono state ricoverate `r totale_ospedalizzati_oggi` persone in più. I pazienti ricoverati con sintomi sono `r ricoverati_con_sintomi`. I ricoveri ospedalieri sono `r ricoverati_con_sintomi_oggi` in più rispetto a ieri. I pazienti ricoverati in terapia intensiva sono `r terapia_intensiva` (`r terapia_intensiva_oggi` in più rispetto a ieri).
 
-*In totale*
-
-```{r}
-df1 <- data.frame(tamponi, totale_attualmente_positivi, isolamento_domiciliare, ricoverati_con_sintomi, terapia_intensiva)
-names(df1) <- c("tamponi", "positivi", "isolamento domiciliare", "ricoverati con sintomi", "terapia intensiva")
-kable(df1, "html", booktabs = T, digits=2) %>%
-kable_styling(position = "left")
-
-```
-
 *Nelle ultime 24 ore*
 
 ```{r}
@@ -165,6 +155,19 @@ kable_styling(position = "left")
 
 
 ```
+
+
+*In totale*
+
+```{r}
+df1 <- data.frame(tamponi, totale_attualmente_positivi, isolamento_domiciliare, ricoverati_con_sintomi, terapia_intensiva)
+names(df1) <- c("tamponi", "positivi", "isolamento domiciliare", "ricoverati con sintomi", "terapia intensiva")
+kable(df1, "html", booktabs = T, digits=2) %>%
+kable_styling(position = "left")
+
+```
+
+
 
 
 ### Decessi
@@ -178,7 +181,13 @@ Nella giornata di oggi sono decedute `r deceduti_oggi` persone. Dall'inizio dell
 
 Sono guarite in totale `r dimessi_guariti` persone dall'inizio dell'epidemia.
 
+*Nelle ultime 24 ore*
 
+
+
+
+
+*In totale*
 ```{r}
 df3 <- data.frame(deceduti,deceduti_oggi, dimessi_guariti, dimessi_guariti_oggi)
 kable(df3)
