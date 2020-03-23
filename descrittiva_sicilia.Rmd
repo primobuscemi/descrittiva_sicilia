@@ -1,6 +1,5 @@
 ---
-title: "COVID-19: la situazione in Sicilia"
-  size: 3
+title: h3("prova")
 categories:
   - R
   - "COVID-19"
