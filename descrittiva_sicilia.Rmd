@@ -89,7 +89,7 @@ sicilia <- dati_it %>% filter(denominazione_regione=="Sicilia")
 
 ```
 
-dati aggiornati al `r tail(sicilia$data,n=1)`
+*dati aggiornati al `r tail(sicilia$data,n=1)`*
 
 ```{r}
 
