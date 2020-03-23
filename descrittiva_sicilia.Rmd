@@ -1,4 +1,5 @@
 ---
+title: "COVID-19: la situazione in Sicilia"
 categories:
   - R
   - "COVID-19"
@@ -90,7 +91,7 @@ sicilia <- dati_it %>% filter(denominazione_regione=="Sicilia")
 
 ```
 
-dati aggiornati al `r today()`
+dati aggiornati al `r tail(sicilia$data,n=1)`
 
 ```{r}
 
@@ -189,7 +190,7 @@ kable(df3)
 
 ```{r, warning=FALSE}
 library(lubridate)
-cumulativa <- cumsum(as.numeric(as.vector(sicilia$nuovi_attualmente_positivi)))
+cumulativa <- cumsum(sicilia$nuovi_attualmente_positivi)
 sic_date<- as.Date(sicilia$data,format="%Y-%m-%d")
 sicilia <- sicilia %>% mutate(cumulativa=cumulativa, date=sic_date)
 
